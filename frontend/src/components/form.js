@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useWorkoutContext } from "../hooks/useWorkoutContext"
 
 export default function Form (){
+    const {dispatch} = useWorkoutContext()
     const[title, setTitle] = useState("")
     const[reps, setReps] = useState("")
     const[load, setLoad] = useState("")
@@ -29,6 +31,7 @@ export default function Form (){
             setLoad("")
             setTitle("")
             console.log("successful😁")
+            dispatch({type:'CREATE_WORKOUT', payload:json})
         }
     }
     return(
