@@ -7,7 +7,7 @@ export default function Details ({workout}){
     const  HandleClick = async () => {
        
 
-        const response = await fetch('http://localhost:4040/workouts/' + workout._id, {
+        const response = await fetch('https://mern-3g50.onrender.com/workouts/' + workout._id, {
             method: 'DELETE',
             headers:{
                 'Authorization' : `Bearer ${user.token}`
