@@ -19,7 +19,7 @@ export default function Form (){
             }
         
         const workout = {title, reps, load}
-        const response = await fetch("http://localhost:4040/workouts",{
+        const response = await fetch("mernworkoutsbackend-1jsevpdw0-realtim0.vercel.app/workouts",{
             method:'POST',
             body:JSON.stringify(workout),
             headers:{
