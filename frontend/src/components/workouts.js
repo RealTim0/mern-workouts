@@ -7,7 +7,7 @@ export default function Details ({workout}){
     const  HandleClick = async () => {
        
 
-        const response = await fetch('http://localhost:4040/workouts/' + workout._id, {
+        const response = await fetch('mernworkoutsbackend-1jsevpdw0-realtim0.vercel.app/workouts/' + workout._id, {
             method: 'DELETE',
             headers:{
                 'Authorization' : `Bearer ${user.token}`
