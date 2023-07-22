@@ -2,10 +2,11 @@
  import { useContext } from "react";
 
  export const useWorkoutContext = () =>{
-    const context = useContext(WorkoutsContext)
+    const context = useContext(WorkoutsContext) 
 
     if(!context){
         throw  Error("not in context")
     }
     return context
  }
+

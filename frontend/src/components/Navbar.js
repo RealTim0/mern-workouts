@@ -7,6 +7,17 @@ export default function Navbar (){
                 <Link to="/" >
                     Workout Buddy
                 </Link>
+                <nav>
+                    <div>
+                    <Link to="/signup" >
+                    Signup
+                </Link>
+                <Link to="/login" >
+                   Login
+                </Link>
+                    </div>
+                </nav>
+                
             </div>
         </header>
     )

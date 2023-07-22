@@ -4,7 +4,6 @@ const {
     findWorkout,
     findWorkouts,
     deleteWorkout,
-    updateworkout,
     updateWorkout
 } = require('../controllers/workout')
 
