@@ -19,7 +19,7 @@ export default function Form (){
             }
         
         const workout = {title, reps, load}
-        const response = await fetch("http://localhost:4040/workouts",{
+        const response = await fetch("https://mern-3g50.onrender.com/workouts",{
             method:'POST',
             body:JSON.stringify(workout),
             headers:{
