@@ -13,7 +13,12 @@ const workoutSchema = new Schema({
     load:{
         type:Number,
         required:true
-    }}
+    },
+    user_id:{
+        required:true,
+        type:String
+    }
+}
 ,{timestamps : true})
 
 module.exports  = mongoose.model('Workout', workoutSchema)

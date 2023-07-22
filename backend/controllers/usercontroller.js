@@ -13,19 +13,21 @@ const loginUser = asyncHandler(async (req, res) =>{
     const {email ,  password} = req.body
 
     if(!email || !password){
-        return res.status(400).json({mss:"all fields are required"})
+        return res.status(400).json({error:"all fields are required"})
     }
     const user = await User.findOne({email})
     if(!user){
-        return res.status(400).json({mss:"Incorrect email "})
+        return res.status(400).json({error:"Incorrect email "})
     }
     const match = await bcrypt.compare(password, user.password)
 
     if(!match){
-        return res.status(400).json({mss:"wrong password"})
+        return res.status(400).json({error:"wrong password"})
     }else{
         const token = createToken(user._id)
-       res.status(200).json({email, token})
+       const name = (user.username)
+       
+       res.status(200).json({email, name, token})
     }
 })
 
@@ -35,17 +37,21 @@ const signupUser = asyncHandler(async (req, res) =>{
     const {email ,username,  password} = req.body
 
     if(!username || !email || !password){
-        return res.status("400").json({mss:"all fields are required"})
+        return res.status(400).json({error:"all fields are required"})
     }
     if(!validator.isEmail(email)){
-        return res.status(400).json({mss:`${email} is an invalid email`})
+        return res.status(400).json({error:`${email} is an invalid email`})
     }
     if(!validator.isStrongPassword(password)){
-        return res.status(400).json({mss:`weak pasword`})
+        return res.status(400).json({error:`password must have:
+         1)upper and lower cases 
+         2)numerics
+         3)special characters
+        `})
     }
     const duplicate = await User.findOne({email})
     if(duplicate){
-        return res.status(400).json({mss:"email  is already registered"})
+        return res.status(400).json({error:"email  is already registered"})
     }
     const hashedPwd = await bcrypt.hash(password, 10)
 
@@ -54,9 +60,12 @@ const signupUser = asyncHandler(async (req, res) =>{
 
    
     if(user){
-        res.status(200).json({email, token})
+        const name = (user.username)
+       
+        res.status(200).json({email, name, token})
     }else{
-        return res.status(400).json({mss:"failed to create a new user"})
+      res.status(400).json({error:"failed to create a new user"})
+        
     }
 
 })
