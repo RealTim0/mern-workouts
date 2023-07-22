@@ -11,7 +11,7 @@ export const useSignup = () => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch('http://localhost:4040/users/signup/', {
+        const response = await fetch('https://mern-3g50.onrender.com/users/signup/', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({email,username,password})  
