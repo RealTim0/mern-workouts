@@ -7,7 +7,13 @@ const app = express()
 const mongoose = require("mongoose")
 const cors = require("cors")
 
-app.use(cors())
+app.use(cors(
+    {
+        origin:["https://mern-workouts-frontend.vercel.app"],
+        methodsL['POST','DELETE','GET'],
+        credentials: true
+    }
+))
 app.use(express.json())
 app.use('/workouts', workoutRoutes)
 app.use('/users', userRoutes)
