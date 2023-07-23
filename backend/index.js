@@ -9,7 +9,7 @@ const cors = require("cors")
 
 app.use(cors(
     {
-        origin:["https://mern-workouts-frontend.vercel.app"],
+        origin:["https://mern-workouts-frontend.vercel.app/"],
         methods:['POST','DELETE','GET'],
         credentials: true
     }
