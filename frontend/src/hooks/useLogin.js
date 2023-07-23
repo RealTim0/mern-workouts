@@ -11,7 +11,7 @@ export const useLogin = () => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch('https://mern-3g50.onrender.com/users/login/', {
+        const response = await fetch('https://mern-workouts-backend.vercel.app/users/login/', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({email,password})  
