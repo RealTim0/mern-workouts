@@ -19,7 +19,7 @@ export default function Form (){
             }
         
         const workout = {title, reps, load}
-        const response = await fetch("https://mern-workouts-backend.vercel.app/workouts",{
+        const response = await fetch("https://mern-workouts-backend.vercel.app/workouts",{mode:'no-cors'},{
             method:'POST',
             body:JSON.stringify(workout),
             headers:{
